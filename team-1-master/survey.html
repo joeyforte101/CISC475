@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+<!-- Specify the character encoding for the HTML document -->
+<meta charset="utf-8">
+	
+<!-- Responsivity powered by bootstrap, leave this one near the top of the header. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+<!-- Bootstrap Links, see https://getbootstrap.com/getting-started/#download for more info -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+
+<!-- Personal Style Sheet -->
+<link href="style.css" rel="stylesheet">
+	
+
+	
+</head>
+<body>
+<div id="header"></div>
+
+<div class="container-fluid">
+<h2>Welcome to Accelerate Delaware!</h2>
+<p>This is a brief questionnaire in order for us to better understand your interests and to better connect you to events and organizations in your local area.</p>
+
+<form id="frm1" action="form_action.asp">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  Email: <input type="text" name="email"><br>
+  <br>
+  Username: <input type="text" name="user"><br>
+  Password: <input type="password" name="pass"><br>
+  <br>
+    What is your primary use for DelAWARE?<br>
+  <input type="radio" name="use" value="business"> Business<br>
+  <input type="radio" name="use" value="personal"> Personal<br>
+  <br>
+  Do you live in Delaware?<br>
+  <input type="radio" name="live" value="true"> Yes<br>
+  <input type="radio" name="live" value="false"> No<br>
+  <br>
+  Do you work in Delaware?<br>
+  <input type="radio" name="work" value="true"> Yes<br>
+  <input type="radio" name="work" value="false"> No<br>
+  <br>
+  How long is your daily commute to work?<br>
+  <input type="radio" name="time" value="low"> Less than 30 mins<br>
+  <input type="radio" name="time" value="med"> 30 mins - 1 hour<br>
+  <input type="radio" name="time" value="high"> 1+ hour<br>
+  <br>
+  Which of the following are you interested in?<br>
+  <input type="checkbox" name="interest" value="music"> Music<br>
+  <input type="checkbox" name="interest" value="film"> Film & Media<br>
+  <input type="checkbox" name="interest" value="food"> Food & Drink<br>
+  <input type="checkbox" name="interest" value="business"> Business<br>
+  <input type="checkbox" name="interest" value="sport"> Sports<br>
+  <input type="checkbox" name="interest" value="sci"> Science & Technology<br>
+  <input type="checkbox" name="interest" value="travel"> Travel & Outdoors<br>
+  <input type="checkbox" name="interest" value="health"> Health & Fitness<br>
+  <br>
+  What days of the week are you most available?<br>
+  <input type="checkbox" name="day" value="monday"> Monday<br>
+  <input type="checkbox" name="day" value="tuesday"> Tuesday<br>
+  <input type="checkbox" name="day" value="wednesday"> Wednesday<br>
+  <input type="checkbox" name="day" value="thursday"> Thursday<br>
+  <input type="checkbox" name="day" value="friday"> Friday<br>
+  <input type="checkbox" name="day" value="saturday"> Saturday<br>
+  <input type="checkbox" name="day" value="sunday"> Sunday<br>
+  <br>
+  <input type="button" onclick="location.href = 'mainsplash.html';"value="Submit"><br><br>
+</form>
+
+
+</div>
+<div id="footer"></div>
+</body>
+</html>

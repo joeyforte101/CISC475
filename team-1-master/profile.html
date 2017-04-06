@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>User Profile with Content Tabs - Design Shack Demo</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="profilestyles.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+
+<style>
+li a:hover {
+    background-color: #111;
+}
+</style>
+
+</head>
+
+<body>
+
+<ul style="background-color: #333;list-style-type: none;margin: 0;padding: 0; overflow: hidden;">
+  <li style="float: left;"><a style="display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;"onclick="location.href = 'mainsplash.html';"><font size="4">Social</a></li>
+  <li style="float: left;"><a style="display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;"onclick="location.href = 'Donation.html';">Dash</a></li>
+  <li style="float: left;"><a style="display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;"onclick="location.href = 'profile.html';">Profile</a></li>
+  <li style="float: left;"><a style="display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;"onclick="location.href = 'events.html';">Events</a></li>
+  <li style="float: left;"><a style="display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;"onclick="location.href = 'calendar.html';">Calendar</a></li>
+  <li style="float: left;"><a style="display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;"onclick="location.href = 'Jobs.html';">Jobs</a></li>
+</ul>
+
+
+  <div id="w">
+    <div id="content" class="clearfix">
+      <div id="userphoto" style="width:150px;height:150px"><img src="images/avatar.png" alt="default avatar"></div>
+      <h1>Minimal User Profile Layout</h1>
+
+      <nav id="profiletabs">
+        <ul class="clearfix">
+          <li><a href="#bio" class="sel">Bio</a></li>
+          <li><a href="#activity">Activity</a></li>
+          <li><a href="#friends">Friends</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+      
+      <section id="bio">
+        <p>Hi my name is John Doe my I am 21 years old and attend the University of Delaware.</p>
+        
+        <p>I am majoring in Computer Science and I am a Senior, I am orginally from the Newark area as well.</p>
+        
+        <p>My interests include Technology,Science,and Music </p>
+      </section>
+
+         </section>
+      
+      <section id="activity" class="hidden">
+        <p>Most recent actions:</p>
+        
+        <p class="activity">@10:15AM - Made an Event</p>
+        
+        <p class="activity">@8:15PM - Went to the Grain</p>
+        
+        <p class="activity">@4:30PM - Added <strong>Joey</strong> as a friend</p>
+        
+        <p class="activity">@12:30PM - Went to Grottos</p>
+      </section>
+            <section id="friends" class="hidden">
+        <p>Friends list:</p>
+        
+       
+          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Joey</a></li>
+          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> SomeGuy123</a></li>
+          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> PurpleGiraffe</a></li>
+        
+      </section>
+      
+      <section id="friends" class="hidden">
+        <p>Friends list:</p>
+        
+        <ul id="friendslist" class="clearfix">
+          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> Username</a></li>
+          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> SomeGuy123</a></li>
+          <li><a href="#"><img src="images/avatar.png" width="22" height="22"> PurpleGiraffe</a></li>
+        </ul>
+      </section>
+      
+      <section id="settings" class="hidden">
+        <p>Edit your user settings:</p>
+        
+        <p class="setting"><span>E-mail Address <img src="images/edit.png" alt="*Edit*"></span> mynameisjohndoe57@gmail.com</p>
+        
+        <p class="setting"><span>Language <img src="images/edit.png" alt="*Edit*"></span> English(US)</p>
+        
+        <p class="setting"><span>Profile Status <img src="images/edit.png" alt="*Edit*"></span> Public</p>
+        
+        <p class="setting"><span>Update Frequency <img src="images/edit.png" alt="*Edit*"></span> Weekly</p>
+        
+        <p class="setting"><span>Connected Accounts <img src="images/edit.png" alt="*Edit*"></span> None</p>
+      </section>
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+    
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+    
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+    
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
+</body>
+</html>
