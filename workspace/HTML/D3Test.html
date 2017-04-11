@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Hello...</title>
+<style type="text/css">
+#mainContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-large;
+	font-weight: bold;
+	background-color: #E3F0FB;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+.buttonStyle {
+	border-radius: 5px;
+	border: thick solid #F0E020;
+	padding: 10px;
+	background-color: #F8F094;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	color: #663300;
+	width: 200px;
+	height: 200px;
+}
+
+.buttonStyle:hover {
+	border: thin solid #FFCC00;
+	background-color: #FCF9D6;
+	color: #996633;
+	cursor: pointer;
+}
+.buttonStyle:active {
+	border: thin solid #99CC00;
+	background-color: #F5FFD2;
+	color: #669900;
+	cursor: pointer;
+}
+
+.bannerStyle {
+	border-radius: 5px;
+	border: thick solid #F0E020;
+	padding: 10px;
+	background-color: #F8F094;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	color: #663300;
+	width: 200px;
+	height: 100px;
+}
+
+.navBarStyle {
+	
+}	
+
+path.slice{
+	stroke-width:2px;
+}
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+} 
+svg text.percent{
+	fill:white;
+	text-anchor:middle;
+	font-size:12px;
+}
+
+</style>
+</head>
+
+<body>
+<div id= "navBar"> 
+	<span> </span>
+</div>
+<div id="mainContent">
+	<div>
+		<span><button id="clickButton1" class="buttonStyle">Button 1</button></span>
+		<span><button id="clickButton2" class="buttonStyle">Button 2</button></span>
+	</div>
+	<div>
+		<span><button id="clickButton3" class="buttonStyle">Button 3</button></span>
+		<span><button id="clickButton4" class="buttonStyle">Button 4</button></span>
+	</div>
+	<div>
+		<span><button class="bannerStyle"> Banner 1</button></span>
+		<span><button class="bannerStyle"> Banner 2</button></span>
+	</div>
+</div>
+<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="Donut3D.js"></script>
+<script>
+
+var salesData=[
+	{label:"Basic", color:"#3366CC"},
+	{label:"Plus", color:"#DC3912"},
+	{label:"Lite", color:"#FF9900"},
+	{label:"Elite", color:"#109618"},
+	{label:"Delux", color:"#990099"}
+];
+var svg = d3.select("body").append("svg").attr("width",700).attr("height",300);
+
+function myFunction(){
+
+
+svg.append("g").attr("id","salesDonut");
+svg.append("g").attr("id","quotesDonut");
+
+Donut3D.draw("salesDonut", randomData(), 150, 150, 130, 100, 30, 0.4);
+Donut3D.draw("quotesDonut", randomData(), 450, 150, 130, 100, 30, 0);
+}
+function changeData(){
+	Donut3D.transition("salesDonut", randomData(), 130, 100, 30, 0.4);
+	Donut3D.transition("quotesDonut", randomData(), 130, 100, 30, 0);
+}
+
+function randomData(){
+	return salesData.map(function(d){ 
+		return {label:d.label, value:1000*Math.random(), color:d.color};});
+}
+
+</script>
+
+<script> 
+var myButton = document.getElementById("clickButton1");
+//var myText = document.getElementById("helloText");
+
+myButton.addEventListener('click', myFunction(), false)
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8">
+<title>Baby Machine</title>
+
+
+<!-- CSS file paths here. to make a new one put the CSS in CSS folder, then link path like below-->
+<link href="/CSS/c3.css" rel="stylesheet" type="text/css">
+<link href="/CSS/navbar.css" rel="stylesheet" type="text/css">
+<link href="/CSS/MainContent.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<!-- Navigation bar at the top, filler one, not useful yet -->
+<div class="topnav" id="myTopnav">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+<!-- Main buttons on front page, probably will have to be totally redone. 
+     Don't even know how this will work with creating new pages for charts
+     Also didn't do shit in terms of CSS for this part                    -->
+
+<div class ="visible" id="mainContent">
+	<div>
+		<span><button id="button1" class="buttonStyle">Button 1</button></span>
+		<span><button id="button2" class="buttonStyle">Button 2</button></span>
+	</div>
+	<div>
+		<span><button id="button3" class="buttonStyle">Button 3</button></span>
+		<span><button id="button4" class="buttonStyle">Button 4</button></span>
+	</div>
+	<div>
+		<span><button id = "sleep" class="bannerStyle"> Sleep</button></span>
+		<span><button id = "power"class="bannerStyle"> Power Off</button></span>
+	</div>
+</div>
+<!-- Divs for pie char and line chart. Definitely temperary, as we want them created/shown on button click -->
+<div class="hidden" id= "chartPie"></div>
+<div class="hidden" id= "chartLine"></div>
+
+
+<!-- Load c3.css -->
+
+
+<!-- Load d3.js and c3.js -->
+<script src="/JS/d3.V3.js" charset="utf-8"></script>
+<script src="/JS/c3.min.js"></script>
+<!-- generate functions for the c3 charts. -->
+<script>
+
+var chartPie = c3.generate({
+    bindto: '#chartPie',
+    data: {
+        // iris data from R
+        columns: [
+            ['data1', 30],
+            ['data2', 120],
+        ],
+        type : 'pie',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    }
+});
+// this is an example of loading data from 
+var chartLine = c3.generate({
+    bindto: '#chartLine',
+    data: {
+    url: '/CSV/fakeData.csv',
+    type: 'line'
+    }
+});
+
+// hide show divs on button click stuff.
+var mainContentDiv = document.getElementById('mainContent');
+var chartPieDiv = document.getElementById('chartPie');
+var chartLineDiv = document.getElementById('chartLine');
+
+var button1 = document.getElementById("button1");
+var button2 = document.getElementById("button2");
+var button3 = document.getElementById("button3");
+var button4 = document.getElementById("button4");
+var sleep = document.getElementById('sleep');
+var power = document.getElementById('power');
+
+//Onclick events for each button. 
+//NOTE: chartPie.flush(); is used because c3.js makes the initial chart size 0x0 on hidden divs
+// flush() forces a redraw of the chart when the div is shown so the chart is made properly.
+button1.onclick = function(){
+	mainContentDiv.style.display = 'none';
+	chartPieDiv.style.display = 'block';
+	chartPie.flush();
+}
+
+button2.onclick = function(){
+	mainContentDiv.style.display = 'none';
+	chartLineDiv.style.display = 'block';
+	chartLine.flush();
+	
+}
+
+button3.onclick = function(){
+	mainContentDiv.style.display = 'none';
+	chartPieDiv.style.display = 'block';
+	chartPie.flush();
+	
+}
+
+button4.onclick = function(){
+	mainContentDiv.style.display = 'none';
+	chartPieDiv.style.display = 'block';
+	chartPie.flush();
+	
+}
+
+sleep.onclick = function(){
+	if(sleep.className == 'bannerStyle'){
+	sleep.setAttribute('class', 'bannerActive');
+	}
+	else{
+		sleep.setAttribute('class', 'bannerStyle');
+	}
+}
+
+
+
+</script>
+
+</body>
+</html>
