@@ -1,7 +1,7 @@
 use MTL;
 CREATE TABLE temp (kidID int(11),D dateTime, X int(11), Y int(11), Z int(11),pitch double, roll double, orientation double);
 explain temp;
- load data local infile 'data.csv' into table temp
+ load data local infile 'TEST.TXT' into table temp
  fields terminated by ','
  enclosed by '"'
  lines terminated by '\n';
