@@ -4,9 +4,13 @@ The sample data is in the file named TEST.txt. The data file will always be name
 
 Every line of data in TEST.txt has the same information. The format is:
 
-Subject_ID, Date, Hour, Minute, Second, x_accel, y_accel, z_accel, pitch, roll, orientation/
+Subject_ID, DateTime, x_accel, y_accel, z_accel, pitch, roll, orientation/
 
-(Subject_ID, Date, Hour, Minute, Second) is a primary identifier for the data.
+(Subject_ID, DateTime) is a primary identifier for the data.
+
+DateTime format is Year-Month-Day Hour:Minute:Second, in format XXXX-XX-XX XX:XX:XX
+
+pitch and roll are accurate to 3 decimal places.
 
 ***************************************************
 
